@@ -59,13 +59,6 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.10.RELEASE</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
-			<version>6.1.0.jre8</version><!--$NO-MVN-MAN-VER$-->
-		</dependency>
-
 	</dependencies>
 
 	<build>

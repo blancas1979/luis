@@ -49,7 +49,9 @@ public class WhatTimeIsItApplicationConfiguration {
 	}
 	
 	private DataSource getSqlServerDataSource() {
-		SQLServerDataSource dataSource = new SQLServerDataSource();
+		OracleDataSource dataSource = new OracleDataSource();
+		
+		datasource.
 		
 		dataSource.setServerName(sqlServer);
 		dataSource.setPortNumber(sqlServerPort);
