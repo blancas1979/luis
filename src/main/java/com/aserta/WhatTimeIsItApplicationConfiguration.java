@@ -1,5 +1,7 @@
 package com.aserta;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +17,8 @@ import com.aserta.operational.management.DefaultLogger;
 import com.aserta.operational.management.ILogger;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
+import oracle.jdbc.pool.OracleDataSource;
 
 @Configuration
 @PropertySource("application.properties")
@@ -49,16 +53,17 @@ public class WhatTimeIsItApplicationConfiguration {
 	}
 	
 	private DataSource getSqlServerDataSource() {
-		OracleDataSource dataSource = new OracleDataSource();
-		
-		datasource.
-		
-		dataSource.setServerName(sqlServer);
-		dataSource.setPortNumber(sqlServerPort);
-		dataSource.setDatabaseName(sqlServerDatabase);
-		dataSource.setUser(sqlServerUser);
-		dataSource.setPassword(sqlServerPassword);
-		dataSource.setApplicationName("Spring Boot What Time Is It");
+		OracleDataSource dataSource=null;
+		try {
+			dataSource = new OracleDataSource();
+
+			dataSource.setURL(sqlServer);
+			dataSource.setUser(sqlServerUser);
+			dataSource.setPassword(sqlServerPassword);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return dataSource;
 	}
